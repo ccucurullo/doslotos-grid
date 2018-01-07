@@ -1,0 +1,140 @@
+// Main Default Tables
+//------------------------------------------------------------------------------
+table{
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  th, td {
+    text-align: left;
+    padding: 5px 10px;
+  }
+}
+
+// Default Table
+.table-default{
+  thead > tr{
+    border-bottom: 1px solid #eee;
+  }
+}
+
+// Bordered Table
+.table-bordered{
+  tr > th,
+  tr > td{
+    border:1px solid #eee;
+  }
+}
+
+// Stripe Table
+.table-striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: #ddd;
+  }
+}
+
+// Table Hover
+.table-hover {
+  > tbody > tr:hover {
+    background-color: #000;
+  }
+}
+
+// Table Responsive
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%;
+  @media screen and (max-width: $device-xs) {
+    width: 100%;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #000;
+    table {
+      margin-bottom: 0;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    > .table-bordered {
+      border: 0;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Tables to Boxes
+//------------------------------------------------------------------------------
+.table-to-box {
+  @media (max-width: $device-sm) {
+  	thead tr {
+  		position: absolute;
+  		top: -9999em;
+  		left: -9999em;
+  	}
+    tbody{
+    	> tr {
+        border-bottom: none;
+      }
+      tr + tr {
+        margin-top: 5px;
+      }
+      > tr,
+      > tr > td {
+    		display: block;
+    	}
+    	> tr > td {
+    		padding-left: 50%;
+        border-bottom: none;
+        &:last-child{
+          border-bottom: 1px solid #eee;
+        }
+        &:before {
+          content: attr(data-label);
+          display: inline-block;
+          font-weight: bold;
+          line-height: 1.5;
+          margin-left: -100%;
+          width: 100%;
+        }
+    	}
+    }
+  }
+  @media (max-width: $device-xs) {
+    td {
+      padding-left: 15px;
+    }
+    td:before {
+      display: block;
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
+}

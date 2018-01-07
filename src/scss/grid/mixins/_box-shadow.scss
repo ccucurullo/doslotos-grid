@@ -1,0 +1,57 @@
+// Main Shadow Mixins
+//-----------------------------
+//__ Box shadow
+@mixin box-shadow ($string) {
+  -webkit-box-shadow: 	$string;
+  -moz-box-shadow: 		  $string;
+  box-shadow: 			    $string;
+}
+//** Example: @include box-shadow(0 1px 3px rgba(0,0,0,0.12));
+
+
+
+//__ Inner Box Shadow
+@mixin box-shadow-inner ($x-axis, $y-axis, $blur, $color){
+   -moz-box-shadow:    	inset $x-axis $y-axis $blur $color;
+   -webkit-box-shadow: 	inset $x-axis $y-axis $blur $color;
+   box-shadow:         	inset $x-axis $y-axis $blur $color;
+}
+//** Example: @include box-shadow-inner(0,0,8px,#fff);
+
+
+
+//__ Main Deep
+@mixin main-deep ($level) {
+    @if $level == 1 {
+      @include box-shadow((
+        0 1px 3px rgba(0,0,0,0.12),
+        0 1px 2px rgba(0,0,0,0.24)
+      ));
+    }
+    @else if $level == 2 {
+      @include box-shadow((
+        0 3px 6px rgba(0,0,0,0.16),
+        0 3px 6px rgba(0,0,0,0.23)
+      ));
+    }
+    @else if $level == 3 {
+      @include box-shadow((
+        0 10px 20px rgba(0,0,0,0.19),
+        0 6px 6px rgba(0,0,0,0.23)
+      ));
+    }
+    @else if $level == 4 {
+      @include box-shadow((
+        0 14px 28px rgba(0,0,0,0.25),
+        0 10px 10px rgba(0,0,0,0.22)
+      ));
+    }
+    @else if $level == 5 {
+      @include box-shadow((
+        0 19px 38px rgba(0,0,0,0.30),
+        0 15px 12px rgba(0,0,0,0.22)
+      ));
+    }
+}
+
+//** Example: @include main-deep(5);

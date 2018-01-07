@@ -1,0 +1,34 @@
+// Main Variables
+//-----------------------------
+
+//** Grid System
+$total-columns:       12 !default;
+$gutter-width:        30px !default;
+
+//** Colors
+$text-color:          #444444 !default;
+$brand-primary:       #6e45e2 !default;
+$brand-secondary:     #F31A3E !default;
+
+//** Navbar
+$navbar-main-padding:   15px !default;
+$navbar-height:         64px !default;
+$navbar-background:     #fff !default;
+// pills nav
+$navbar-pills-padding:  10px 15px !default;
+$navbar-pills-radius:   12px !default;
+$navbar-pills-space:    10px !default;
+
+
+//** Buttons
+$disabled-btn:        #dddddd !default;
+$btn-top-margin:      5px !default;
+$btn-padding:         10px 20px !default;
+
+//** Media Breakpoints
+$device-all: 					300px !default;
+$device-xs: 					480px !default;
+$device-sm: 					768px !default;
+$device-md: 					992px !default;
+$device-lg: 					1200px !default;
+$navbar-collapse:     $device-sm !default;

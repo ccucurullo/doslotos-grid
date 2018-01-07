@@ -1,0 +1,61 @@
+// Main Transitions
+//-----------------------------
+
+//__ Main hover animation only for desktop
+@mixin hover-animation(){
+  @media (min-width: #{$device-lg}){
+    @content;
+  }
+}
+
+//** Example: @include hover-animation{ properties };
+
+//__ Animation Base
+@mixin animation($duration) {
+  -webkit-transition:   $duration;
+    -moz-transition:    $duration;
+    -ms-transition:     $duration;
+    -o-transition:      $duration;
+    transition:         $duration;
+}
+//** Example: @include animation(0.5s ease-in-out);
+
+
+//__ Animation Transform Base
+@mixin animation-transform ($string){
+	-webkit-transform: 		$string;
+	-moz-transform: 	 	$string;
+	-ms-transform: 		 	$string;
+	-o-transform: 		 	$string;
+}
+//** Example: @include animation-transform(rotate(360deg));
+
+//__ Style Transform
+@mixin style-transform ($style-transform){
+	-webkit-transform-style: $style-transform;
+  	-moz-transform-style: $style-transform;
+  	-o-transform-style: $style-transform;
+  	-ms-transform-style: $style-transform;
+  	transform-style: $style-transform;
+}
+//** Example: @include style-transform(preserve-3d);
+
+//__ Transform Origin
+@mixin transform-origin ($transform-origin){
+	-moz-transform-origin: $transform-origin;
+    -o-transform-origin: $transform-origin;
+    -ms-transform-origin: $transform-origin;
+    transform-origin: $transform-origin;
+}
+//** Example: @include transform-origin(50% 50%);
+
+
+//__ Style Transform
+@mixin perspective ($perspective){
+	-webkit-perspective: $perspective;
+  	-moz-perspective: $perspective;
+  	-o-perspective: $perspective;
+  	-ms-perspective: $perspective;
+  	perspective: $perspective;
+}
+//** Example: @include perspective(1000px);

@@ -1,0 +1,110 @@
+// Main Cards
+//-----------------------------
+.cards-wrapper{
+  @extend  .display-flex;
+	@include flex-wrap(wrap);
+	* > {
+		@include flex(1,1,100%);
+	}
+  // Vertical Row Card
+  //---------------------------------------------------
+	.card{
+		@extend .display-flex;
+		@include flex-direction(column);
+		@include flex (1,1,calc(33.33% - 20px));
+		margin: 10px;
+		@media (max-width: $device-md){
+			@include flex (1,1,calc(50% - 20px));
+		}
+		@media (max-width: $device-xs){
+			@include flex (1,1,100%);
+		}
+		// card head head
+		.card-head{
+			//min-height: 200px;
+			> img{
+		  		display: block;
+		  		width: 100%;
+		  	}
+		}
+		// card content
+		.card-body{
+			@extend .display-flex;
+			@include flex-direction(column);
+			@include flex(1,0,auto);
+			padding: 15px;
+			p{
+				@include flex(1,0,auto);
+				margin-bottom: 15px;
+			}
+		}
+
+		// Horizontal Row Card
+    //---------------------------------------------------
+		&.horizontal-card{
+			@include flex-direction(row);
+			@include justify-content(flex-start);
+			@include flex (1,1,100%);
+      @media (max-width: $device-sm){
+        @include align-items(center);
+      }
+      // change from horizontal to vertical
+      @media (max-width: $device-sm){
+    		@include flex-direction(column);
+    		@include flex (1,1,calc(50% - 20px));
+    		margin: 10px;
+      }
+			.card-head{
+				@include flex (1,1,30%);
+        @media (max-width: $device-md){
+          @include flex-basis(50%);
+        }
+        // change from horizontal to vertical
+        @media (max-width: $device-sm){
+          @include flex(1,1,100%);
+        }
+			}
+			.card-body{
+				@include flex (2,1,70%);
+				p{
+					@include flex(0,0,auto);
+				}
+				a{
+					@include align-self(flex-start);
+				}
+        // change from horizontal to vertical
+        @media (max-width: $device-sm){
+          @include display-flex();
+    			@include flex-direction(column);
+    			@include flex(1,0,auto);
+    			padding: 15px;
+    			p{
+    				@include flex(1,0,auto);
+    				margin-bottom: 15px;
+    			}
+          a{
+  					@include align-self();
+  				}
+        }
+			}
+		}
+	}
+}
+
+// List Group Cards
+.list-group-cards{
+  @extend .display-flex;
+  @include flex-direction(column);
+  @include clear-list(0, 0, none);
+  * > {
+    @include flex(1,1,100%);
+  }
+}
+.list-card > a{
+  @extend .display-flex;
+  @include flex-direction();
+  // main card Img
+  > .card-img{
+    @include circle(60px);
+  }
+}

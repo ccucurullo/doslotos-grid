@@ -1,0 +1,112 @@
+// Main BTNs
+//-----------------------------
+.btn{
+  @extend  .display-inline-flex;
+  @include flex-wrap(wrap);
+  @include align-items(center);
+  @include justify-content(center);
+  @include border-radius(0);
+  @include hover-animation{
+    @include animation(0.15s ease-in-out);
+  }
+  text-decoration: none;
+  margin-top: $btn-top-margin;
+  padding: $btn-padding;
+  border: 1px solid transparent;
+  &.btn-default{
+    border-color: lighten($text-color, 50%);
+    background-color: transparent;
+    color: $text-color;
+    &:active,
+    &:focus,
+    &:hover{
+      background-color: lighten($text-color, 50%);
+    }
+  }
+  &.btn-primary{
+    border-color: $brand-primary;
+    background-color: $brand-primary;
+    color: #fff;
+    &:active,
+    &:focus,
+    &:hover{
+      background-color: darken($brand-primary, 10%);
+    }
+  }
+  &.btn-secondary{
+    border-color: $brand-secondary;
+    background-color: $brand-secondary;
+    color: #fff;
+    &:active,
+    &:focus,
+    &:hover{
+      background-color: darken($brand-secondary, 10%);
+    }
+  }
+  &.btn-disabled{
+    &,
+    &:active,
+    &:focus,
+    &:hover{
+      border-color: $disabled-btn;
+      background-color: $disabled-btn;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Rounded Buttons
+.btn-rounded{
+  @include border-radius(25px);
+}
+
+// Shadow Buttons
+.btn-shadow{
+  @include main-deep(2);
+  &:hover{
+    @include main-deep(4);
+  }
+  &:active,
+  &:focus{
+    @include main-deep(1);
+  }
+}
+
+// Outline Buttons
+.btn-outline{
+  &.btn-primary{
+    background-color: transparent;
+    color: $brand-primary;
+  }
+  &.btn-secondary{
+    background-color: transparent;
+    color: $brand-secondary;
+  }
+  &.btn-disabled{
+    color: $disabled-btn;
+  }
+  &:hover{
+    color: #fff;
+  }
+
+}
+
+// Flotating BTN
+//-----------------------------
+.floating-btn{
+  @extend  .display-flex;
+	@include flex-direction(column);
+	@include flex-wrap(wrap);
+	@include align-items(center);
+  @include justify-content(center);
+  @include circle(56px);
+  @include element-position (fixed,auto,15px,15px,auto);
+  @include main-deep(3);
+  background-color: $brand-secondary;
+  font-size: 24px;
+  color:#fff;
+  text-decoration: none;
+  &.floating-btn-small{
+    @include circle(40px);
+  }
+}

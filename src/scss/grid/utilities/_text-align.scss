@@ -1,0 +1,51 @@
+// Main Text Align Classes
+//-----------------------------
+
+//** Text Align
+.text-center{
+  text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+//** center aligment media breakpoints
+.text-xs-center{
+  @media (min-width: $device-xs){
+    text-align: center;
+  }
+}
+.text-xs-right{
+  @media (min-width: $device-xs){
+    text-align: right;
+  }
+}
+.text-sm-center{
+  @media (min-width: $device-sm){
+    text-align: center;
+  }
+}
+.text-sm-right{
+  @media (min-width: $device-sm){
+    text-align: right;
+  }
+}
+.text-md-right{
+  @media (min-width: $device-md){
+    text-align: right;
+  }
+}
+.text-md-center{
+  @media (min-width: $device-md){
+    text-align: center;
+  }
+}
+.text-lg-center{
+  @media (min-width: $device-lg){
+    text-align: center;
+  }
+}
+.text-lg-right{
+  @media (min-width: $device-lg){
+    text-align: right;
+  }
+}

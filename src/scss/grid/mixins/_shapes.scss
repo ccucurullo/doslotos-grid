@@ -1,0 +1,17 @@
+// Shapes Mixins
+//-----------------------------
+
+//__ Square Shapes
+@mixin square($square-size) {
+  width: 	$square-size;
+  height: 	$square-size;
+}
+//** Example: @include square(80px);
+
+
+//__ Circle Shapes
+@mixin circle ($circle-size){
+	@include square($circle-size);
+	@include border-radius(50%);
+}
+//** Example: @include circle(80px);

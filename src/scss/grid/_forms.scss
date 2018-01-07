@@ -1,0 +1,412 @@
+// Main Forms Variables
+//-----------------------------
+$item-margin:           25px !default;
+$input-padding:         10px !default;
+$input-border:          1px solid #ccc;
+
+$placeholder-color:     #999 !default;
+$placeholder-size:      14px !default;
+$error-color:           #d9534f !default;
+
+// Form default
+//-----------------------------
+form{
+  @extend .display-flex;
+  @include flex-wrap(wrap);
+  @include flex-direction();
+  > *{
+    @include flex(1 1 100%);
+    position: relative;
+    margin-bottom: $item-margin;
+  }
+  // inline forms
+  &.inline-form{
+    @include flex-direction();
+    @include flex-wrap(nowrap);
+    @include align-items(flex-end);
+    @include justify-content(space-around);
+    > *{
+      @include flex(1 1 100%);
+      padding:0 4px;
+    }
+    @media (max-width: $device-xs){
+      @include flex-wrap(wrap);
+    }
+  }
+  // Dont edit this. Default values for form elements
+  input,
+  select,
+  textarea{
+    width: 100%;
+  }
+  select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius:0;
+    background-color: #fff;
+    &:-ms-expand {
+      display: none;
+    }
+  }
+  textarea{
+    resize: none;
+  }
+}
+
+
+// Main Forms
+//-----------------------------
+.form{
+  label{
+    display: block;
+  }
+  input,
+  select,
+  textarea{
+    border: $input-border;
+    padding: $input-padding;
+  }
+  .select{
+    position: relative;
+    &:after{
+      @include animation-transform(rotate(-135deg));
+      @include square(8px);
+      content: '';
+      display: inline-block;
+      border-left: solid 1px #000;
+      border-top: solid 1px #000;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      margin-top: -8px; // we pull the icon the same px as the width/height.
+    }
+  }
+  .checkbox,
+  .radios{
+    label,
+    input{
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+
+// Main forms placeholder
+//-----------------------------
+.form{
+  @include placeholder {
+    color: $placeholder-color;
+    font-size: $placeholder-size;
+  }
+}
+
+
+// Main Materials Form
+//-----------------------------
+.materials{
+  //__ animation
+  .default-transition {
+    @include animation(all .25s ease-out);
+  }
+  //__ main form label
+  .float-label {
+    @extend .default-transition;
+    pointer-events:none;
+    position:absolute;
+    top:4px;
+  }
+  //__ main form elements
+  input,
+  textarea{
+    @extend .default-transition;
+    @include box-shadow(0 1px 0px rgba(255,255,255,1));
+    border: 0;
+    border-bottom: 1px solid #929292;
+    display: block;
+    min-height: 36px;
+    vertical-align: middle;
+    &::placeholder {
+      @include opacity (0);
+    }
+    &::-webkit-input-placeholder {
+      color: #ddd;
+      @include opacity (0);
+    }
+    &:focus,
+    &:valid {
+      outline: 0;
+      &::placeholder {
+        @include opacity (1);
+      }
+      &::-webkit-input-placeholder {
+        @include opacity (1);
+      }
+    }
+  }
+  //__ Main Field Bar
+  .field-bar {
+    @extend .default-transition;
+    @include animation-transform(translateX(-50%));
+    position: relative;
+    left: 50%;
+    height: 2px;
+    width: 0%;
+    display: block;
+    background: $brand-primary;
+    top: -1px;
+    z-index: 1;
+  }
+
+  //__ Active Labels
+  .float-field:focus ~ label,
+  .float-field:valid ~ label,
+  textarea:focus ~ label,
+  textarea:valid ~ label,
+  .fancy-select.selected ~ label,
+  .fancy-select.open ~ label {
+    top:-20px;
+    font-size: 12px;
+    color: $brand-primary;
+  }
+  .trigger ~ label {
+    color: red;
+  }
+  //__ Active Inputs
+  input[type=text]:focus ~ .field-bar,
+  input[type=text]:valid ~ .field-bar,
+  input[type=email]:focus ~ .field-bar,
+  input[type=email]:valid ~ .field-bar,
+  .fancy-select.selected ~ .field-bar,
+  .fancy-select.open ~ .field-bar,
+  textarea:focus ~ .field-bar,
+  textarea:valid ~ .field-bar {
+    width: 100%;
+  }
+  //__ main select
+  select {
+    background: #fff;
+    border-bottom: 1px solid #929292;
+    border-radius: 0;
+    color: $brand-primary;
+    font-size: .75rem;
+    font-weight: bold;
+    height: 30px;
+    position: relative;
+    text-transform: uppercase;
+
+    & ~ label {
+      opacity: 1;
+    }
+    &:focus {
+      outline: none;
+      & ~ .field-bar {
+        width: 100%;
+      }
+      & ~ label {
+        opacity: 1;
+      }
+    }
+  }
+  //__ Main Textarea
+  textarea {
+    @extend .default-transition;
+    resize: none;
+    overflow: hidden;
+    line-height: 1.6;
+    height: 60px;
+    padding-bottom: .5rem;
+    overflow-y: auto;
+  }
+
+  //__ Main Checkbox & Radios
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked,
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+    & + label {
+      position: relative;
+      padding-left: 1.95em;
+      cursor: pointer;
+      &:before {
+        @extend .default-transition;
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 0px;
+      }
+    }
+  }
+
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before{
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid $brand-primary;
+    background: #fff;
+    border-radius: 2px;
+  }
+  [type="radio"]:not(:checked) + label:before,
+  [type="radio"]:checked + label:before{
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid $brand-primary;
+    background: #fff;
+    border-radius: 50%;
+  }
+  [type="checkbox"]:checked + label:before {
+    background: $brand-primary;
+  }
+  [type="radio"]:checked + label:after{
+    @extend .default-transition;
+    content: '';
+    position: absolute;
+    left: 5.5px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background: $brand-primary;
+    border-radius: 50%;
+  }
+
+  // main select
+  .fancy-select {
+  	position: relative;
+  	font-weight: bold;
+  	text-transform: uppercase;
+  	font-size: 13px;
+  	color: #46565D;
+    border-bottom: 1px solid #929292;
+    // disables
+    .fancy-select.disabled {
+    	opacity: 0.5;
+    }
+  }
+  .fancy-select select:focus + .trigger {
+    background: rgba(#929292, .1);
+    &.open {
+    	box-shadow: none;
+    }
+  }
+  //trigger
+  .fancy-select .trigger {
+    @extend .default-transition;
+  	border-radius: 0;
+  	cursor: pointer;
+  	padding: 8px 24px 8px 0;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	position: relative;
+  	background: #fff;
+  	color: $brand-primary;
+    height: 30px;
+  	width: 100%;
+    &:after {
+    	content: "";
+    	display: block;
+    	position: absolute;
+    	width: 0;
+    	height: 0;
+    	border: 5px solid transparent;
+    	border-top-color: #4B5468;
+    	top: 15px;
+    	right: 9px;
+    }
+    &.open {
+    	background: #fff;
+    	color: $brand-primary;
+    	box-shadow: none;
+      &:after {
+      	border-top-color: #7A8498;
+      }
+    }
+  }
+  //__ Droopdown Style
+  .fancy-select ul.options {
+    @extend .default-transition;
+  	list-style: none;
+    border: 1px solid #eee;
+  	margin: 0;
+  	position: absolute;
+  	top: 32px;
+  	left: 0;
+    padding-left: 0;
+  	visibility: hidden;
+  	opacity: 0;
+  	z-index: 50;
+  	max-height: 200px;
+  	overflow: auto;
+  	background: #fff;
+  	min-width: 100%;
+    &.open {
+      @extend .default-transition;
+    	visibility: visible;
+    	top: 32px;
+    	opacity: 1;
+    }
+    &.overflowing {
+      @extend .default-transition;
+    	top: auto;
+    	bottom: 40px;
+      &.open {
+        @extend .default-transition;
+      	top: auto;
+      	bottom: 50px;
+      }
+    }
+  }
+  .fancy-select ul.options li {
+    @extend .default-transition;
+  	padding: 8px 12px;
+  	color: #929292;
+  	cursor: pointer;
+  	white-space: nowrap;
+    font-weight: normal;
+    text-transform: none;
+  	transition: all 150ms ease-out;
+    &.selected {
+    	background: $brand-primary;
+    	color: #fff;
+    }
+    &.hover {
+    	background: $brand-primary;
+    	color: #fff;
+    }
+  }
+}
+
+
+
+
+// Main Forms Validations
+//-----------------------------
+.error{
+  label{
+    color: $error-color;
+  }
+  input,
+  textarea,
+  select{
+    border-color: $error-color;
+    background-color: lighten($error-color, 35%);
+  }
+}
+
+// Materials Error
+.materials .error{
+  input,
+  textarea,
+  select{
+    background-color: transparent;
+  }
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before,
+  [type="radio"]:checked + label:before{
+    border-color: $error-color;
+  }
+}

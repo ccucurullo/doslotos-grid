@@ -1,0 +1,34 @@
+// Border Radius Mixins
+//-----------------------------
+
+//__ Border Radius
+@mixin border-radius($radius) {
+  -webkit-border-radius:    $radius;
+  -moz-border-radius:       $radius;
+  border-radius:            $radius;
+  -moz-background-clip:     padding;
+  -webkit-background-clip:  padding-box;
+  background-clip:          padding-box;
+}
+//** Example: @include border-radius(50%);
+
+
+//__ Border Radius Individual
+@mixin border-radius-individual ($border-top-left, $border-top-right, $border-bottom-right, $border-bottom-left) {
+  -webkit-border-top-right-radius:    $border-top-right;
+  -webkit-border-bottom-right-radius: $border-bottom-right;
+  -webkit-border-bottom-left-radius:  $border-bottom-left;
+  -webkit-border-top-left-radius:     $border-top-left;
+  -moz-border-radius-topright:        $border-top-right;
+  -moz-border-radius-bottomright:     $border-bottom-right;
+  -moz-border-radius-bottomleft:      $border-bottom-left;
+  -moz-border-radius-topleft:         $border-top-left;
+  border-top-right-radius:            $border-top-right;
+  border-bottom-right-radius:         $border-bottom-right;
+  border-bottom-left-radius:          $border-bottom-left;
+  border-top-left-radius:             $border-top-left;
+  -moz-background-clip:               padding;
+  -webkit-background-clip:            padding-box;
+  background-clip:                    padding-box;
+}
+//** Example: @include border-radius-individual(10px, 5px, 10px, 5px);

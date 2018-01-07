@@ -1,0 +1,44 @@
+// Main Images Classes
+//-----------------------------
+img{
+  //** Max Width Responsive
+  &.img-responsive,
+  &.img-full-responsive{
+    display: block;
+    height: auto;
+  }
+  &.img-responsive{
+    max-width: 100%;
+  }
+  &.img-full-responsive{
+    width: 100%;
+  }
+}
+
+//__ Retina Background Images
+//
+// Retina Img
+// --------------------------------------------------
+$retina: "only screen and (-webkit-min-device-pixel-ratio: 2),
+          only screen and (min--moz-device-pixel-ratio: 2),
+          only screen and (-o-min-device-pixel-ratio: 2/1),
+          only screen and (min-device-pixel-ratio: 2),
+          only screen and (min-resolution: 192dpi),
+          only screen and (min-resolution: 2dppx)";
+
+@mixin retina-image($container-max-width, $container-height, $img-file, $img-type) {
+  max-width: $container-max-width;
+  height: $container-height;
+  background-image: url($img-file + '.' + $img-type);
+  @media #{$retina} {
+    background-size: 100%;
+    background-image: url($img-file + '@2x.' + $img-type);
+    background-repeat: no-repeat;
+  }
+}
+.retina-img{
+  @include retina-image(160px, 160px, "/doslotos-grid/images/con-retina", "jpg");
+}
+.no-retina-img{
+  background-image: url("/doslotos-grid/images/sin-retina.jpg");
+}

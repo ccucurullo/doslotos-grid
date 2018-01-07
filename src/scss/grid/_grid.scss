@@ -1,0 +1,197 @@
+// Container
+//----------------------------------------------------------------
+.container,
+.container-fluid{
+	@extend  .display-flex;
+	@include flex-direction(column);
+	@include flex-wrap(wrap);
+	@include align-items();
+	&.inline-container{
+		@extend .display-inline-flex;
+	}
+}
+.container{
+	margin:0 auto;
+	@media (min-width: $device-sm) {
+	   max-width: auto;
+	}
+	@media (min-width: $device-md) {
+	   max-width: $device-md;
+	}
+	@media (min-width: $device-lg) {
+	  max-width: $device-lg;
+	}
+	@media (max-width: $device-lg){
+		padding:0 15px;
+	}
+}
+.container-fluid{
+	width: 100%;
+}
+
+// Rows
+//----------------------------------------------------------------
+.row {
+	@extend .display-flex;
+	@include flex-wrap(wrap);
+	@include flex-direction();
+}
+// row aligment
+.row-align-v-center {
+  @include align-items(center);
+}
+.row-align-v-bottom {
+  @include align-items(flex-end);
+}
+.row-align-v-top {
+  @include align-items(flex-start);
+}
+.row-align-h-center {
+  @include justify-content(center);
+}
+.row-align-h-left {
+  @include justify-content(flex-start);
+}
+.row-align-h-right {
+  @include justify-content(flex-end);
+}
+.row-reverse {
+  @include flex-direction(row-reverse);
+}
+// Columns System
+//----------------------------------------------------------------
+//_ Default column
+[class*="col-"] {
+  @include flex-basis(100%);
+  max-width: 100%;
+  padding-right: $gutter-width / 2;
+  padding-left: $gutter-width / 2;
+}
+//_ Column grid
+@mixin column-widths($size) {
+  @for $i from 1 through $total-columns {
+    .col-#{$size}-#{$i} {
+      @include flex-basis(($i / $total-columns) * 100%);
+      max-width: ($i / $total-columns) * 100%;
+    }
+  }
+}
+
+// Columns Offset
+//----------------------------------------------------------------
+@mixin column-offsets($size) {
+  @for $i from 1 through $total-columns {
+    .col-#{$size}-offset-#{$i} {
+      margin-left: ($i / $total-columns) * 100%;
+    }
+  }
+}
+
+// Columns Order
+//----------------------------------------------------------------
+@mixin column-order($size) {
+  @for $i from 1 through $total-columns {
+    .col-#{$size}-ord-#{$i} {
+      order: $i;
+    }
+  }
+}
+
+// CSS Output
+//----------------------------------------------------------------
+@include column-widths(xxs);
+@include column-offsets(xxs);
+@include column-order(xxs);
+
+@media (min-width: $device-xs) {
+  @include column-widths(xs);
+  @include column-offsets(xs);
+  @include column-order(xs);
+}
+
+@media (min-width: $device-sm) {
+  @include column-widths(sm);
+  @include column-offsets(sm);
+  @include column-order(sm);
+}
+@media (min-width: $device-md) {
+  @include column-widths(md);
+  @include column-offsets(md);
+  @include column-order(md);
+}
+@media (min-width: $device-lg) {
+  @include column-widths(lg);
+  @include column-offsets(lg);
+  @include column-order(lg);
+}
+
+// Main grid display settings
+//-----------------------------
+@for $FlexGrid from 1 through 8 {
+	.grid-#{$FlexGrid},
+	.grid-md-#{$FlexGrid},
+	.grid-sm-#{$FlexGrid}{
+  	@extend .display-flex;
+		@include flex-wrap(wrap);
+		@include flex-direction();
+		@include justify-content();
+	}
+	.grid-#{$FlexGrid} {
+		> *{
+   		@include flex-basis(calc(100% / (#{$FlexGrid})));
+   	}
+	}
+}
+// grid md break
+@for $FlexGridMD from 1 through 4 {
+	.grid-md-#{$FlexGridMD}{
+		> *{
+			@media (max-width: $device-md){
+				@include flex-basis(calc(100% / (#{$FlexGridMD})));
+			}
+		}
+	}
+}
+// grid sm break
+@for $FlexGridSM from 1 through 4 {
+	.grid-sm-#{$FlexGridSM}{
+		> *{
+			@media (max-width: $device-sm){
+				@include flex-basis(calc(100% / (#{$FlexGridSM})));
+			}
+		}
+	}
+}
+// grid xs break
+@for $FlexGridXS from 1 through 4 {
+	.grid-xs-#{$FlexGridXS}{
+		> *{
+			@media (max-width: $device-xs){
+				@include flex-basis(calc(100% / (#{$FlexGridXS})));
+			}
+		}
+	}
+}
+
+// Horizontal Scrolling Grid
+.grid-md-horizontal{
+	@media (max-width: $device-md){
+		@include flex-wrap(nowrap);
+		@include justify-content(space-between);
+		overflow-x: auto;
+	}
+}
+.grid-sm-horizontal{
+	@media (max-width: $device-sm){
+		@include flex-wrap(nowrap);
+		@include justify-content(space-between);
+		overflow-x: auto;
+	}
+}
+.grid-xs-horizontal{
+	@media (max-width: $device-xs){
+		@include flex-wrap(nowrap);
+		@include justify-content(space-between);
+		overflow-x: auto;
+	}
+}
