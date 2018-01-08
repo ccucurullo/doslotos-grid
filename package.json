@@ -1,0 +1,10 @@
+{
+  "name": "dsgrid",
+  "version": "0.0.1",
+  "description": "flexbox framewrok",
+  "main": "index.js",
+  "repository": "git@github.com:ccucurullo/dsgrid.git",
+  "author": "Carlos Cucurullo <ccucurullo@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
