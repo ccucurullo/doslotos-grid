@@ -2,9 +2,13 @@
   "name": "dsgrid",
   "version": "0.0.1",
   "description": "flexbox framewrok",
-  "main": "index.js",
   "repository": "git@github.com:ccucurullo/dsgrid.git",
   "author": "Carlos Cucurullo <ccucurullo@gmail.com>",
-  "license": "MIT",
-  "private": false
+  "scripts": {
+    "build": "node-sass --output-style=compressed src/scss/dsgrid.scss dist/css/dsgrid.css",
+    "dev": "node-sass src/scss/dsgrid.scss src/scss/dsgrid.css"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
+  }
 }
