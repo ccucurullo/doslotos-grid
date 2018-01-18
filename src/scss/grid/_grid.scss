@@ -5,7 +5,6 @@
 	@extend  .display-flex;
 	@include flex-direction(column);
 	@include flex-wrap(wrap);
-	@include align-items();
 	&.inline-container{
 		@extend .display-inline-flex;
 	}
@@ -34,7 +33,6 @@
 .row {
 	@extend .display-flex;
 	@include flex-wrap(wrap);
-	@include flex-direction();
 }
 // row aligment
 .row-align-v-center {
@@ -65,7 +63,7 @@
 //----------------------------------------------------------------
 //_ Default column
 [class*="col-"] {
-  @include flex-basis(100%);
+  @include flex(0 0 100%);
   max-width: 100%;
   padding-right: $gutter-width / 2;
   padding-left: $gutter-width / 2;
@@ -74,7 +72,7 @@
 @mixin column-widths($size) {
   @for $i from 1 through $total-columns {
     .col-#{$size}-#{$i} {
-      @include flex-basis(($i / $total-columns) * 100%);
+      @include flex(0 0 ($i / $total-columns) * 100%);
       max-width: ($i / $total-columns) * 100%;
     }
   }
