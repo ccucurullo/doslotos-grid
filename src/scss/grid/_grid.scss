@@ -46,6 +46,9 @@
 .row-align-v-top {
   @include align-items(flex-start);
 }
+.row-align-v-baseline {
+  @include align-items(baseline);
+}
 .row-align-h-center {
   @include justify-content(center);
 }
@@ -194,4 +197,18 @@
 		@include justify-content(space-between);
 		overflow-x: auto;
 	}
+}
+
+
+
+/* Masonry container */
+.masonry-layout {
+    column-count: 4;
+    column-gap: 1em;
+    @media (max-width: 768px){
+      column-count: 2;
+    }
+    @media (max-width: 480px){
+      column-count: 1;
+    }
 }
