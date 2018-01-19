@@ -1,5 +1,9 @@
-// Main Navbar
 //-----------------------------
+//
+//    Navbar
+//
+//-----------------------------
+
 #navbar {
   @include element-position (fixed,0,0,auto,0);
   @include zindex(10);

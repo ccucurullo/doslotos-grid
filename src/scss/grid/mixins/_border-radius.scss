@@ -1,4 +1,7 @@
-// Border Radius Mixins
+//-----------------------------
+//
+//    Border Radius Mixins
+//
 //-----------------------------
 
 //__ Border Radius
@@ -10,8 +13,7 @@
   -webkit-background-clip:  padding-box;
   background-clip:          padding-box;
 }
-//** Example: @include border-radius(50%);
-
+//** Como aplicarla? @include border-radius(50%); **
 
 //__ Border Radius Individual
 @mixin border-radius-individual ($border-top-left, $border-top-right, $border-bottom-right, $border-bottom-left) {
@@ -31,4 +33,4 @@
   -webkit-background-clip:            padding-box;
   background-clip:                    padding-box;
 }
-//** Example: @include border-radius-individual(10px, 5px, 10px, 5px);
+//** Como aplicarla? @include border-radius-individual(10px, 5px, 10px, 5px); **

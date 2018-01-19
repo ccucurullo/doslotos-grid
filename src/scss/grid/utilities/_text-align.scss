@@ -1,14 +1,18 @@
-// Main Text Align Classes
+//-----------------------------
+//
+//    Images / Media
+//
 //-----------------------------
 
-//** Text Align
+//__  Text Align
 .text-center{
   text-align: center;
 }
 .text-right{
   text-align: right;
 }
-//** center aligment media breakpoints
+
+//__  Breakpoint Text Align
 .text-xs-center{
   @media (min-width: $device-xs){
     text-align: center;

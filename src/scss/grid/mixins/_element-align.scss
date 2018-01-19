@@ -1,14 +1,17 @@
-// Element Aligment Mixins
+//-----------------------------
+//
+//    Aligment Mixins
+//
 //-----------------------------
 
-//__ Element center aligment
+//__ Centrar Elementos
 @mixin center-element() {
   margin-left: auto;
   margin-right: auto;
 }
-//** Example: @include center-element();
+//** Como aplicarlo? @include center-element(); **
 
-//__ Block element center aligment
+//__ Centrar elemento bloque con margenes
 @mixin block-center-element($top-space, $bottom-space){
 	margin-top: $top-space;
   margin-bottom: $bottom-space;
@@ -16,13 +19,4 @@
   margin-left: auto;
   display: block;
 }
-//** Example: @include block-center-element(40px, 40px);
-
-
-//__ Element Vertical alignment
-@mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  @include animation-transform(translateY(-50%));
-}
-//** Example: @include vertical-align();
+//** Como aplicarlo? @include block-center-element(40px, 40px); **

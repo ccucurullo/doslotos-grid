@@ -1,4 +1,7 @@
-// Main Transitions
+//-----------------------------
+//
+//    Transition Mixins
+//
 //-----------------------------
 
 //__ Main hover animation only for desktop
@@ -7,8 +10,8 @@
     @content;
   }
 }
-
-//** Example: @include hover-animation{ properties };
+// Este mixin sirve para aplicarle animaciones y efectos en el hover de nuestros componentes desapareciendo a partir de 1200px (touch devices)
+//** Como aplicarlo? @include hover-animation{ parametros }; **
 
 //__ Animation Base
 @mixin animation($duration) {
@@ -18,8 +21,7 @@
     -o-transition:      $duration;
     transition:         $duration;
 }
-//** Example: @include animation(0.5s ease-in-out);
-
+//** Como aplicarlo? @include animation(0.5s ease-in-out); **
 
 //__ Animation Transform Base
 @mixin animation-transform ($string){
@@ -28,7 +30,7 @@
 	-ms-transform: 		 	$string;
 	-o-transform: 		 	$string;
 }
-//** Example: @include animation-transform(rotate(360deg));
+//** Como aplicarlo? @include animation-transform(rotate(360deg)); **
 
 //__ Style Transform
 @mixin style-transform ($style-transform){
@@ -38,7 +40,7 @@
   	-ms-transform-style: $style-transform;
   	transform-style: $style-transform;
 }
-//** Example: @include style-transform(preserve-3d);
+//** Como aplicarlo? @include style-transform(preserve-3d); **
 
 //__ Transform Origin
 @mixin transform-origin ($transform-origin){
@@ -47,8 +49,7 @@
     -ms-transform-origin: $transform-origin;
     transform-origin: $transform-origin;
 }
-//** Example: @include transform-origin(50% 50%);
-
+//** Como aplicarlo? @include transform-origin(50% 50%); **
 
 //__ Style Transform
 @mixin perspective ($perspective){
@@ -58,4 +59,4 @@
   	-ms-perspective: $perspective;
   	perspective: $perspective;
 }
-//** Example: @include perspective(1000px);
+//** Como aplicarlo? @include perspective(1000px); **

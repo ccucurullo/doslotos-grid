@@ -1,5 +1,10 @@
-// Responsive Wrapper Mixins
 //-----------------------------
+//
+//    Responsive holder Mixins
+//		(iframes, video, ojects)
+//
+//-----------------------------
+
 @mixin responsive-holder($ratio: 1 1, $selector: "> :first-child") {
 	$selector: unquote($selector);
 	padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
@@ -22,6 +27,4 @@
 	}
 }
 
-//** Example: @include fluid-aspect(16 9); default
-//            @include fluid-aspect(4 3, iframe);
-//            @include fluid-aspect(5 3, "&--fluid");
+//** Como Aplicarlo? @include responsive-holder(16 9);
