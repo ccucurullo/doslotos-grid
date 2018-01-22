@@ -56,6 +56,11 @@
   }
 }
 
+// Navbar position
+.navbar-fixed{
+  @include element-position (fixed,0,0,auto,0);
+}
+
 // Default Vertical Nav
 .navbar {
   &.nav-default{
@@ -64,9 +69,12 @@
         @include flex-direction(column);
         @include flex-wrap(wrap);
         @include align-items(flex-start);
-        @include element-position (fixed,($navbar-height - 1),auto,auto,0);
+        @include element-position (absolute,($navbar-height - 1),auto,auto,0);
         width: 100%;
         overflow-y: auto;
+
+        background-color: #fff;
+        border: 1px solid #000;
       }
     }
   }
@@ -80,10 +88,13 @@
         @include flex-direction();
         @include flex-wrap(nowrap);
         @include align-items(center);
-        @include element-position (fixed,($navbar-height - 1),auto,auto,0);
+        @include element-position (absolute,($navbar-height - 1),auto,auto,0);
         width: 100%;
         overflow-y: hidden;
         overflow-x: auto;
+
+        background-color: #fff;
+        border: 1px solid #000;
         & > li {
           width: auto;
         }
@@ -91,6 +102,7 @@
     }
   }
 }
+
 
 // Offcanvas Nav
 .navbar {
@@ -105,6 +117,9 @@
         @include element-position (fixed,0,auto,0,auto);
         @include zindex(10);
         width: 320px;
+
+        background-color: #fff;
+        border: 1px solid #000;
       }
       // Left Offcanvas Nav
       &.nav-left{
@@ -119,6 +134,10 @@
         &.active {
           right: 0;
         }
+      }
+      // Open canvas below Header
+      &.below-header{
+        top: $navbar-height;
       }
     }
   }
