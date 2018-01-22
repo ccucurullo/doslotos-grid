@@ -97,6 +97,8 @@
         border: 1px solid #000;
         & > li {
           width: auto;
+          @include flex(1 1 100%);
+          text-align: center;
         }
       }
     }
