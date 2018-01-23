@@ -11,6 +11,8 @@
 	@extend  .display-flex;
 	@include flex-direction(column);
 	@include flex-wrap(wrap);
+	min-height: 0;           /* NEW */
+  min-width: 0;
 	&.inline-container{
 		@extend .display-inline-flex;
 	}
@@ -39,6 +41,8 @@
 .row {
 	@extend .display-flex;
 	@include flex-wrap(wrap);
+	min-height: 0;           /* NEW */
+  min-width: 0;
 }
 // row aligment
 .row-align-v-center {
@@ -138,8 +142,6 @@
 	.grid-sm-#{$FlexGrid}{
   	@extend .display-flex;
 		@include flex-wrap(wrap);
-		@include flex-direction();
-		@include justify-content();
 	}
 	.grid-#{$FlexGrid} {
 		> *{
@@ -178,29 +180,39 @@
 	}
 }
 
+// Mixin for every resolution to fix horizontal scroll
+@mixin grid-responsive-state(){
+	@include flex-wrap(nowrap);
+	@include justify-content(space-between);
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	/* firefox fix */
+	@-moz-document url-prefix() {
+  	max-width: 95vw;
+	}
+	@media (max-width: $device-xs){
+		@-moz-document url-prefix() {
+			max-width: 86vw;
+		}
+	}
+
+}
+
 // Horizontal Scrolling Grid
 .grid-md-horizontal{
 	@media (max-width: $device-md){
-		@include flex-wrap(nowrap);
-		@include justify-content(space-between);
-		overflow-x: auto;
-		max-width: 90vw;
+		@include grid-responsive-state();
 	}
 }
 .grid-sm-horizontal{
 	@media (max-width: $device-sm){
-		@include flex-wrap(nowrap);
-		@include justify-content(space-between);
-		overflow-x: auto;
-		max-width: 90vw;
+		@include grid-responsive-state();
 	}
 }
 .grid-xs-horizontal{
 	@media (max-width: $device-xs){
-		@include flex-wrap(nowrap);
-		@include justify-content(space-between);
-		overflow-x: auto;
-		max-width: 90vw;
+		@include grid-responsive-state();
 	}
 }
 
