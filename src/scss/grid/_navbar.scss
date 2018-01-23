@@ -12,6 +12,11 @@
   padding-left: $navbar-main-padding;
   padding-right: $navbar-main-padding;
   background-color: $navbar-background;
+  // split header in two for logo + nav
+  > .brand,
+  > .nav{
+    @include flex(1 1 auto);
+  }
   // Site Logo / Brand
   > .brand {
   	display: block;
@@ -30,6 +35,7 @@
     white-space: nowrap;
     @media (min-width: $navbar-collapse) {
       @include display-flex();
+      @include flex-wrap(wrap);
     }
     // Nav Active
     &.active {
@@ -46,6 +52,21 @@
         margin-left: 0;
       }
     }
+  }
+}
+
+// Navbar Items
+.nav > li {
+  @include flex(1 0 auto);
+  @media (min-width: $navbar-collapse){
+    text-align: center;
+  }
+  @media (max-width: $navbar-collapse){
+    @include flex-grow(0);
+    width: 100%;
+  }
+  a{
+    display: block;
   }
 }
 
@@ -80,6 +101,7 @@
         @include flex-wrap(nowrap);
         @include align-items(center);
         @include element-position (absolute,($navbar-height - 1),auto,auto,0);
+        @include justify-content(space-between);
         width: 100%;
         overflow-y: hidden;
         overflow-x: auto;
@@ -87,6 +109,7 @@
           width: auto;
           @include flex(1 1 100%);
           text-align: center;
+          padding: 10px 20px;
         }
       }
     }
@@ -149,20 +172,6 @@
   }
 }
 
-// Navbar Items
-.nav > li {
-  @include flex-shrink(0);
-  @media (max-width: $navbar-collapse){
-    width: 100%;
-  }
-  a{
-    display: block;
-    height: $navbar-height;
-    line-height: $navbar-height;
-    padding-left: round(($navbar-height - 20) / 2);
-    padding-right: round(($navbar-height - 20) / 2);
-  }
-}
 
 // Navbat Pill Items
 .pills-nav {
