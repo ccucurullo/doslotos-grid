@@ -71,8 +71,6 @@
 [class*="col-"] {
   @include flex(0 0 100%);
   max-width: 100%;
-  padding-right: $gutter-width / 2;
-  padding-left: $gutter-width / 2;
 }
 //_ Column grid
 @mixin column-widths($size) {
@@ -186,6 +184,7 @@
 		@include flex-wrap(nowrap);
 		@include justify-content(space-between);
 		overflow-x: auto;
+		max-width: 90vw;
 	}
 }
 .grid-sm-horizontal{
@@ -193,6 +192,7 @@
 		@include flex-wrap(nowrap);
 		@include justify-content(space-between);
 		overflow-x: auto;
+		max-width: 90vw;
 	}
 }
 .grid-xs-horizontal{
@@ -200,6 +200,7 @@
 		@include flex-wrap(nowrap);
 		@include justify-content(space-between);
 		overflow-x: auto;
+		max-width: 90vw;
 	}
 }
 

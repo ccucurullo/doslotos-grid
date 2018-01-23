@@ -96,9 +96,6 @@
 // Fullscreen Nav
 .navbar {
   &.nav-fullscreen{
-    @media (max-width: $navbar-collapse) {
-      //@include element-position (fixed,0,0,auto,0);
-    }
     > .nav {
       @media (max-width: $navbar-collapse) {
         @include flex-direction(column);
@@ -108,6 +105,10 @@
         width: 100vw;
         height: 100vh;
       }
+    }
+    // position for toggle btn
+    > .toggle{
+      @include zindex(10);
     }
   }
 }
