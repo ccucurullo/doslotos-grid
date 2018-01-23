@@ -3,13 +3,6 @@
 //    Navbar
 //
 //-----------------------------
-
-#navbar {
-  @include element-position (fixed,0,0,auto,0);
-  @include zindex(10);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
-}
-
 .navbar {
   @extend  .display-flex;
 	@include flex-direction();
@@ -59,6 +52,7 @@
 // Navbar position
 .navbar-fixed{
   @include element-position (fixed,0,0,auto,0);
+  @include zindex(10);
 }
 
 // Default Vertical Nav
@@ -72,9 +66,6 @@
         @include element-position (absolute,($navbar-height - 1),auto,auto,0);
         width: 100%;
         overflow-y: auto;
-
-        background-color: #fff;
-        border: 1px solid #000;
       }
     }
   }
@@ -92,9 +83,6 @@
         width: 100%;
         overflow-y: hidden;
         overflow-x: auto;
-
-        background-color: #fff;
-        border: 1px solid #000;
         & > li {
           width: auto;
           @include flex(1 1 100%);
@@ -109,7 +97,7 @@
 .navbar {
   &.nav-fullscreen{
     @media (max-width: $navbar-collapse) {
-      @include element-position (fixed,0,0,auto,0);
+      //@include element-position (fixed,0,0,auto,0);
     }
     > .nav {
       @media (max-width: $navbar-collapse) {
@@ -119,8 +107,6 @@
         padding-top: $navbar-height;
         width: 100vw;
         height: 100vh;
-
-        background-color: rgba(255, 255, 255, 0.8);
       }
     }
   }
@@ -139,9 +125,6 @@
         @include element-position (fixed,0,auto,0,auto);
         @include zindex(10);
         width: 320px;
-
-        background-color: #fff;
-        border: 1px solid #000;
       }
       // Left Offcanvas Nav
       &.nav-left{
@@ -236,7 +219,7 @@
   }
 }
 
-// Reset pilss style to mach the dropdowns
+// Reset pills style to mach the dropdowns
 .pills-nav > .dropdown.open ul > li > a{
   @include border-radius(0);
   background-color: transparent;
@@ -290,7 +273,7 @@
   }
 }
 
-.navbar > .toggle.btn-active > .icon {
+.navbar > .toggle.toggle-active > .icon {
 	background-color: transparent;
 	&:before {
     @include animation-transform(translateY(8px) rotate(45deg));
