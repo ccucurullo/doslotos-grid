@@ -11,7 +11,7 @@
 	@extend  .display-flex;
 	@include flex-direction(column);
 	@include flex-wrap(wrap);
-	min-height: 0;           /* NEW */
+	min-height: 0;
   min-width: 0;
 	&.inline-container{
 		@extend .display-inline-flex;
@@ -28,9 +28,6 @@
 	@media (min-width: $device-lg) {
 	  max-width: $device-lg;
 	}
-	@media (max-width: $device-lg){
-		//padding:0 15px;
-	}
 }
 .container-fluid{
 	width: 100%;
@@ -41,7 +38,7 @@
 .row {
 	@extend .display-flex;
 	@include flex-wrap(wrap);
-	min-height: 0;           /* NEW */
+	min-height: 0;
   min-width: 0;
 }
 // row aligment
@@ -219,14 +216,18 @@
 
 
 
-/* Masonry container */
+// Masonry container
 .masonry-layout {
-    column-count: 3;
-    column-gap: 1em;
-    @media (max-width: 768px){
-      column-count: 2;
-    }
-    @media (max-width: 480px){
-      column-count: 1;
-    }
+    column-count: $masonry-columns;
+    column-gap: $masonry-gap;    
+}
+
+// CSS Layout Grid
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--gridBox-height), 1fr));
+    grid-gap: var(--grid-main-space);
+    grid-auto-rows: minmax(var(--gridBox-height), auto);
+    grid-auto-flow: dense;
+    padding: var(--grid-main-padding);
 }
