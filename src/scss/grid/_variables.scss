@@ -5,24 +5,31 @@
 //-----------------------------
 
 //** Grid System
-$total-columns:       12 !default;
-$gutter-width:        30px !default;
+$total-columns:             12 !default;
+$gutter-width:              30px !default;
 
 
 //** Navbar
-$navbar-main-padding:   15px !default;
-$navbar-height:         64px !default;
-$navbar-background:     transparent !default;
+$navbar-main-padding:       15px !default;
+$navbar-height:             64px !default;
+$navbar-background:         transparent !default;
+// brand
+$navbar-brand-margin:       round(($navbar-height - 20) / 2) 0 !default;
+// navbar items
+$navbar-item-padding:       0 round(($navbar-height - 30) / 2) !default;
+// offcanvas
+$offcanvas-panel:           300px !default; /* Offcanvas panel width */
 // pills nav
-$navbar-pills-padding:  10px 15px !default;
-$navbar-pills-radius:   12px !default;
-$navbar-pills-space:    10px !default;
+$navbar-pills-padding:      10px round(($navbar-height - 30) / 2) !default;
+$navbar-pills-radius:       6px !default;
+$navbar-pillsItem-space:    10px !default;
+$navbar-pills-bgColor:      #ccc !default;
 
 
 //** Media Breakpoints
-$device-all: 					300px !default;
-$device-xs: 					480px !default;
-$device-sm: 					768px !default;
-$device-md: 					992px !default;
-$device-lg: 					1200px !default;
-$navbar-collapse:     $device-sm !default;
+$device-all: 					      200px !default;
+$device-xs: 					      480px !default;
+$device-sm: 					      768px !default;
+$device-md: 					      992px !default;
+$device-lg: 					      1200px !default;
+$navbar-collapse:           $device-sm !default;

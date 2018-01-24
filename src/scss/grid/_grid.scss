@@ -29,7 +29,7 @@
 	  max-width: $device-lg;
 	}
 	@media (max-width: $device-lg){
-		padding:0 15px;
+		//padding:0 15px;
 	}
 }
 .container-fluid{
@@ -75,6 +75,7 @@
 [class*="col-"] {
   @include flex(0 0 100%);
   max-width: 100%;
+	padding:0 15px;
 }
 //_ Column grid
 @mixin column-widths($size) {

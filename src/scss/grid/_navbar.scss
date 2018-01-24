@@ -12,18 +12,20 @@
   padding-left: $navbar-main-padding;
   padding-right: $navbar-main-padding;
   background-color: $navbar-background;
-  // split header in two for logo + nav
-  > .brand,
-  > .nav{
-    @include flex(1 1 auto);
+  // Reverse the navbar if you want an app look & feel
+  &.navbar-reverse{
+    @media (max-width: $navbar-collapse){
+      @include flex-direction(row-reverse);
+      @include align-items(center);
+      .brand{
+        @include flex-grow(2);
+      }
+    }
   }
   // Site Logo / Brand
   > .brand {
   	display: block;
-  	margin: round(($navbar-height - 20) / 2) 0;
-    @media (max-width: $navbar-collapse) {
-      margin: 18px;
-    }
+  	margin: $navbar-brand-margin;
   }
   // Site Main Navigation
   > .nav {
@@ -35,38 +37,11 @@
     white-space: nowrap;
     @media (min-width: $navbar-collapse) {
       @include display-flex();
-      @include flex-wrap(wrap);
     }
     // Nav Active
     &.active {
-      @extend  .display-flex;
+      @extend .display-flex;
     }
-  }
-  // Reverse the navbar if you want an app look & feel
-  &.navbar-reverse{
-    @media (max-width: $navbar-collapse){
-      @include flex-direction(row-reverse);
-      @include align-items(flex-end);
-      .brand{
-        @include flex-grow(2);
-        margin-left: 0;
-      }
-    }
-  }
-}
-
-// Navbar Items
-.nav > li {
-  @include flex(1 0 auto);
-  @media (min-width: $navbar-collapse){
-    text-align: center;
-  }
-  @media (max-width: $navbar-collapse){
-    @include flex-grow(0);
-    width: 100%;
-  }
-  a{
-    display: block;
   }
 }
 
@@ -77,116 +52,121 @@
 }
 
 // Default Vertical Nav
-.navbar {
-  &.nav-default{
-    > .nav{
-      @media (max-width: $navbar-collapse) {
-        @include flex-direction(column);
-        @include flex-wrap(wrap);
-        @include align-items(flex-start);
-        @include element-position (absolute,($navbar-height - 1),auto,auto,0);
-        width: 100%;
-        overflow-y: auto;
-      }
+.nav-default{
+  > .nav{
+    @media (max-width: $navbar-collapse) {
+      @include flex-direction(column);
+      @include flex-wrap(wrap);
+      @include align-items(flex-start);
+      @include element-position (absolute,($navbar-height - 1),auto,auto,0);
+      width: 100vw;
+      overflow-y: auto;
     }
   }
 }
 
 // Scrollin Horizontal Nav
-.navbar {
-  &.nav-horizontal{
-    > .nav {
-      @media (max-width: $navbar-collapse) {
-        @include flex-direction();
-        @include flex-wrap(nowrap);
-        @include align-items(center);
-        @include element-position (absolute,($navbar-height - 1),auto,auto,0);
-        @include justify-content(space-between);
-        width: 100%;
-        overflow-y: hidden;
-        overflow-x: auto;
-        & > li {
-          width: auto;
-          @include flex(1 1 100%);
-          text-align: center;
-          padding: 10px 20px;
-        }
+.nav-horizontal{
+  > .nav {
+    @media (max-width: $navbar-collapse) {
+      @include flex-direction();
+      @include flex-wrap(nowrap);
+      @include align-items(center);
+      @include element-position (absolute,($navbar-height - 1),auto,auto,0);
+      width: 100vw;
+      overflow-y: hidden;
+      overflow-x: auto;
+      & > li {
+        width: auto;
+        @include flex(1 1 100%);
+        text-align: center;
       }
     }
   }
 }
 
+
 // Fullscreen Nav
-.navbar {
-  &.nav-fullscreen{
-    > .nav {
-      @media (max-width: $navbar-collapse) {
-        @include flex-direction(column);
-        @include flex-wrap(wrap);
-        @include element-position (fixed,0,0,0,0);
-        padding-top: $navbar-height;
-        width: 100vw;
-        height: 100vh;
-      }
-    }
-    // position for toggle btn
-    > .toggle{
+.nav-fullscreen{
+  @media (max-width: $navbar-collapse) {
+    > .toggle {
       @include zindex(10);
+    }
+  }
+  > .nav {
+    @media (max-width: $navbar-collapse) {
+      @include flex-direction(column);
+      @include flex-wrap(wrap);
+      @include element-position (fixed,0,0,0,0);
+      padding-top: $navbar-height;
+      width: 100vw;
+      height: 100vh;
     }
   }
 }
 
 // Offcanvas Nav
-.navbar {
-  &.nav-offcanvas{
-    > .nav {
-      @media (max-width: $navbar-collapse) {
-        @include display-flex();
-        @include flex-direction(column);
-  			@include flex-wrap(wrap);
-  			@include align-items(flex-start);
-        @include animation(0.25s ease-in-out);
-        @include element-position (fixed,0,auto,0,auto);
-        @include zindex(10);
-        width: 320px;
+.nav-offcanvas{
+  > .nav {
+    @media (max-width: $navbar-collapse) {
+      @include display-flex();
+      @include flex-direction(column);
+  		@include flex-wrap(wrap);
+  		@include align-items(flex-start);
+      @include animation(0.25s ease-in-out);
+      @include element-position (fixed,0,auto,0,auto);
+      @include zindex(10);
+      width: $offcanvas-panel;
+    }
+    // Left Offcanvas Nav
+    &.nav-left{
+      left:-$offcanvas-panel;
+      &.active {
+        left: 0;
       }
-      // Left Offcanvas Nav
-      &.nav-left{
-        left:-320px;
-        &.active {
-          left: 0;
-        }
+    }
+    // Right Offcanvas Nav
+    &.nav-right{
+      right:-$offcanvas-panel;
+      &.active {
+        right: 0;
       }
-      // Right Offcanvas Nav
-      &.nav-right{
-        right:-320px;
-        &.active {
-          right: 0;
-        }
-      }
-      // Open canvas below Header
-      &.below-header{
-        top: $navbar-height;
+    }
+    // Open canvas below Header
+    &.below-header{
+      top: $navbar-height;
+    }
+  }
+}
+// Navbat Pill Items
+.pills-nav {
+  > .nav {
+    @include flex(0 1 auto);
+    @include justify-content(space-between);
+    & > li{
+      padding-left: $navbar-pillsItem-space;
+      padding-right: $navbar-pillsItem-space;
+      a{
+        @include border-radius($navbar-pills-radius);
+        background-color: $navbar-pills-bgColor;
+        height: auto;
+        line-height: normal;
+        padding: $navbar-pills-padding;
       }
     }
   }
 }
 
 
-// Navbat Pill Items
-.pills-nav {
-  @include flex(0 1 auto);
-  @include justify-content(space-between);
-  & > li{
-    padding-left: $navbar-pills-space;
-    padding-right: $navbar-pills-space;
-    a{
-      @include border-radius($navbar-pills-radius);
-      background-color: #f3f3f3;
-      height: auto;
-      line-height: normal;
-      padding: $navbar-pills-padding;
-    }
+// Navbar Items
+.nav > li {
+  @include flex-shrink(0);
+  @media (max-width: $navbar-collapse){
+    width: 100vw;
+  }
+  a{
+    display: block;
+    padding: $navbar-item-padding;
   }
 }
 
@@ -230,7 +210,7 @@
 }
 
 // Reset pills style to mach the dropdowns
-.pills-nav > .dropdown.open ul > li > a{
+.pills-nav .dropdown.open ul > li > a{
   @include border-radius(0);
   background-color: transparent;
   padding: 10px round(($navbar-height - 20) / 2);
