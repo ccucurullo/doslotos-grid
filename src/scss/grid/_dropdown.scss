@@ -1,0 +1,52 @@
+//-----------------------------
+//
+//    Dropdown
+//
+//-----------------------------
+
+.dropdown{
+  position: relative;
+  > a:after{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .625em;
+    vertical-align: .125em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+  }
+  ul{
+    display: none;
+  }
+  &.open{
+    > a:after{
+      @include animation-transform(rotate(180deg));
+    }
+    ul{
+      @extend  .display-flex;
+      @include flex-direction(column);
+      @include flex-wrap(wrap);
+      @include clear-list(0, 0, none);
+      margin-top: .0625em;
+      background-color: #ddd;
+      @media (min-width: $navbar-collapse){
+        position: absolute;
+      }
+      > li > a{
+        height: auto;
+        line-height: normal;
+        padding: .625em round(($navbar-height - 20) / 2);
+      }
+    }
+  }
+}
+
+// Reset pills style to mach the dropdowns
+.pills-nav .dropdown.open ul > li > a{
+  @include border-radius(0);
+  background-color: transparent;
+  padding: .625em round(($navbar-height - 20) / 2);
+}

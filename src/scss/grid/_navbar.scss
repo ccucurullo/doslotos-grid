@@ -45,7 +45,7 @@
   }
 }
 
-// Navbar position
+// Navbar fixed position
 .navbar-fixed{
   @include element-position (fixed,0,0,auto,0);
   @include zindex(10);
@@ -71,7 +71,7 @@
     @media (max-width: $navbar-collapse) {
       @include flex-direction();
       @include flex-wrap(nowrap);
-      @include align-items(center);
+      @include align-items(flex-start);
       @include element-position (absolute,($navbar-height - 1),auto,auto,0);
       width: 100vw;
       overflow-y: hidden;
@@ -157,7 +157,6 @@
   }
 }
 
-
 // Navbar Items
 .nav > li {
   @include flex-shrink(0);
@@ -167,108 +166,5 @@
   a{
     display: block;
     padding: $navbar-item-padding;
-  }
-}
-
-// Main Nav Dropdown
-.dropdown{
-  position: relative;
-  > a:after{
-    @include animation-transform(rotate(-135deg));
-    @include square(8px);
-    content: '';
-    display: inline-block;
-    margin-left: 10px;
-    border-left: solid 1px #000;
-    border-top: solid 1px #000;
-
-  }
-  ul{
-    display: none;
-  }
-  &.open{
-    > a:after{
-      @include animation-transform(rotate(45deg));
-    }
-    ul{
-      @extend  .display-flex;
-      @include flex-direction(column);
-      @include flex-wrap(wrap);
-      @include clear-list(0, 0, none);
-      margin-top: 1px;
-      background-color: #ddd;
-      @media (min-width: $navbar-collapse){
-        position: absolute;
-      }
-      > li > a{
-        height: auto;
-        line-height: normal;
-        padding: 10px round(($navbar-height - 20) / 2);
-      }
-    }
-  }
-}
-
-// Reset pills style to mach the dropdowns
-.pills-nav .dropdown.open ul > li > a{
-  @include border-radius(0);
-  background-color: transparent;
-  padding: 10px round(($navbar-height - 20) / 2);
-}
-
-// Toggle button
-.navbar > .toggle {
-	border: 0;
-	background-color: transparent;
-	outline: none;
-	border: 0;
-	display: inline-block;
-	background-color: transparent;
-	background-image: none;
-	vertical-align: middle;
-	text-align: center;
-	white-space: nowrap;
-	cursor: pointer;
-	touch-action: manipulation;
-	user-select: none;
-	padding: round(($navbar-height - 20) / 2);
-	 @media (min-width: $navbar-collapse) {
-		 display: none;
-	 }
-}
-
-.navbar > .toggle > .icon {
-	position: relative;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	&,
-	&:before,
-	&:after {
-		display: block;
-		width: 24px;
-		height: 3px;
-		transition: background-color 0.15s linear, transform 0.15s linear;
-		background-color: #555555;
-	}
-	&:before,
-  &:after {
-    position: absolute;
-    content: "";
-  }
-	&:before {
-    top: -8px;
-  }
-	&:after {
-    top: 8px;
-  }
-}
-
-.navbar > .toggle.toggle-active > .icon {
-	background-color: transparent;
-	&:before {
-    @include animation-transform(translateY(8px) rotate(45deg));
-  }
-	&:after {
-    @include animation-transform(translateY(-8px) rotate(-45deg));
   }
 }
