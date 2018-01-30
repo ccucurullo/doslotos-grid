@@ -59,7 +59,7 @@
       @include flex-wrap(wrap);
       @include align-items(flex-start);
       @include element-position (absolute,($navbar-height - 1),auto,auto,0);
-      width: 100vw;
+      width: 100%;
       overflow-y: auto;
     }
   }
@@ -73,7 +73,7 @@
       @include flex-wrap(nowrap);
       @include align-items(flex-start);
       @include element-position (absolute,($navbar-height - 1),auto,auto,0);
-      width: 100vw;
+      width: 100%;
       overflow-y: hidden;
       overflow-x: auto;
       & > li {
@@ -99,7 +99,7 @@
       @include flex-wrap(wrap);
       @include element-position (fixed,0,0,0,0);
       padding-top: $navbar-height;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
     }
   }
@@ -161,7 +161,7 @@
 .nav > li {
   @include flex-shrink(0);
   @media (max-width: $navbar-collapse){
-    width: 100vw;
+    width: 100%;
   }
   a{
     display: block;
