@@ -2,6 +2,15 @@
 
 Un framework CSS basado en Flexbox.
 
+## Instalación
+
+```
+$ npm install dsgrid
+o bien
+$ yarn add dsgrid
+```
+Archivo .zip [Descarga](https://github.com/ccucurullo/dsgrid/archive/master.zip)
+
 ## Documentación
 
 Toda la documentación pódes verla en [dosLotos Grid Demo](http://www.google.com) donde encontrarás explicaciones y ejemplo.
