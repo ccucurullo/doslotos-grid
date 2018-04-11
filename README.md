@@ -13,7 +13,7 @@ Archivo .zip [Descarga](https://github.com/ccucurullo/dsgrid/archive/master.zip)
 
 ## Documentación
 
-Toda la documentación pódes verla en [dosLotos Grid Demo](http://www.google.com) donde encontrarás explicaciones y ejemplo.
+Toda la documentación pódes verla en [dosLotos Grid Demo](http://www.doslotos.com/doslotos-grid/) donde encontrarás explicaciones y ejemplo.
 
 ## Estructura de Archivos
 
