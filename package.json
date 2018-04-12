@@ -4,6 +4,14 @@
   "description": "flexbox framewrok",
   "repository": "git@github.com:ccucurullo/doslotos-grid.git",
   "license": "MIT",
+  "keywords": [
+    "flexbox",
+    "framework css",
+    "scss",
+    "sass",
+    "grid css",
+    "grid layout"
+  ],
   "author": "Carlos Cucurullo <ccucurullo@gmail.com>",
   "contributors": [
     {
