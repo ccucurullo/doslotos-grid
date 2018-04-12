@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.7"></a>
+## [1.0.7](https://github.com/ccucurullo/doslotos-grid/compare/v1.0.6...v1.0.7) (2018-04-12)
+
+
+### Bug Fixes
+
+* fix package.json file ([d162afb](https://github.com/ccucurullo/doslotos-grid/commit/d162afb))
+
+
+
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/ccucurullo/doslotos-grid/compare/v1.0.5...v1.0.6) (2018-04-12)
 
