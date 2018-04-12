@@ -3,10 +3,11 @@
 A lightweight CSS Flexbox Framework.
 
 ## Installation
-
+### NPM
 ```
 $ npm install doslotos-grid
 ```
+### Yarn
 ```
 $ yarn add doslotos-grid
 ```
@@ -43,6 +44,7 @@ grid/
 ├── _responsive-toggleBtn.scss
 └── _variables.scss
 ```
+
 ## Features
 * Fluid / Fixed layout.
 * Intelligent cell wrapping.
@@ -57,21 +59,23 @@ grid/
 
 ## Author
 
-Carlos 'el Ruso' Cucurullo
+**Carlos 'el Ruso' Cucurullo**
 
+* [dosLotos Site](http://www.doslotos.com/)
+* [dosLotos Grid Docs](http://www.doslotos.com/doslotos-grid/)
 * [Github](https://github.com/ccucurullo)
-* [dosLotos site](http://www.doslotos.com/)
 * [LinkedIn](https://www.linkedin.com/in/rusocucu/)
 * [Twitter](https://twitter.com/RusoDev)
 
 ## Contributor
 
-Javier Alonso Shannon
+**Javier Alonso Shannon**
 
 * [Github](https://github.com/javialon26)
 * [LinkedIn](https://www.linkedin.com/in/javieralonsoshannon/)
 
 ## Browser support
+**dosLotos** Grid uses autoprefixer to make Flexbox features compatible with earlier browser versions.
 
 * Google Chrome (latest)
 * Opera (latest)
