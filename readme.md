@@ -1,21 +1,22 @@
 # dosLotos Grid
 
-Un framework CSS basado en Flexbox.
+A lightweight CSS Flexbox Framework.
 
-## Instalación
+## Installation
 
 ```
 $ npm install doslotos-grid
-o bien
+```
+```
 $ yarn add doslotos-grid
 ```
-Archivo .zip [Descarga](https://github.com/ccucurullo/doslotos-grid/archive/master.zip)
+If you are not familiar with this kind of installation you can also download the [Zip file](https://github.com/ccucurullo/doslotos-grid/archive/master.zip) where you will find all the SCSS files and the compiled version.
 
-## Documentación
+## Documentation
 
-Toda la documentación pódes verla en [dosLotos Grid Demo](http://www.doslotos.com/doslotos-grid/) donde encontrarás explicaciones y ejemplo.
+All the documentation and use examples are in [dosLotos Grid Docs](http://www.doslotos.com/doslotos-grid/).
 
-## Estructura de Archivos
+## File Structure
 
 ```
 grid/
@@ -42,19 +43,38 @@ grid/
 ├── _responsive-toggleBtn.scss
 └── _variables.scss
 ```
+## Features
+* Fluid / Fixed layout.
+* Intelligent cell wrapping.
+* Equal height columns.
+* Horizontal centering of cells.
+* Custom vertical alignment of cells (top, bottom, or middle).
+* Columns Offset.
+* Columns Order.
+* Nesting.
+* Mansory Layout.
+* Grid CSS base Layout.
 
-## Autor
+## Author
 
-Carlos 'Ruso' Cucurullo
+Carlos 'el Ruso' Cucurullo
 
 * [Github](https://github.com/ccucurullo)
-* [Sitio Personal](http://www.doslotos.com/)
+* [dosLotos site](http://www.doslotos.com/)
 * [LinkedIn](https://www.linkedin.com/in/rusocucu/)
 * [Twitter](https://twitter.com/RusoDev)
 
-## Contribuidor
+## Contributor
 
 Javier Alonso Shannon
 
 * [Github](https://github.com/javialon26)
 * [LinkedIn](https://www.linkedin.com/in/javieralonsoshannon/)
+
+##Browser support
+
+* Google Chrome (latest)
+* Opera (latest)
+* Firefox (latest)
+* Safari (latest)
+* Internet Explorer (latest)
