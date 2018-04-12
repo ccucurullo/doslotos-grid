@@ -71,7 +71,7 @@ Javier Alonso Shannon
 * [Github](https://github.com/javialon26)
 * [LinkedIn](https://www.linkedin.com/in/javieralonsoshannon/)
 
-##Browser support
+## Browser support
 
 * Google Chrome (latest)
 * Opera (latest)
