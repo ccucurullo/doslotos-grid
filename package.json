@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "node-sass src/scss/doslotos-grid.scss dist/doslotos-grid.css",
     "build": "node-sass --output-style=compressed src/scss/doslotos-grid.scss dist/css/doslotos-grid.css",
+    "pre-release": "standard-version",
     "release": "standard-version && git push --follow-tags && yarn publish"
   },
   "devDependencies": {
