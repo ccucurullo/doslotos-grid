@@ -5,7 +5,7 @@
   "homepage": "https://github.com/ccucurullo/doslotos-grid",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:ccucurullo/doslotos-grid.git"
+    "url": "git+ssh://git@github.com/ccucurullo/doslotos-grid.git"
   },
   "bugs": {
     "url": "https://github.com/ccucurullo/doslotos-grid/issues"
