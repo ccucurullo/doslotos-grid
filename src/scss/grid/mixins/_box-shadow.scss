@@ -1,14 +1,16 @@
-// Main Shadow Mixins
 //-----------------------------
+//
+//    Box Shadow Mixins
+//
+//-----------------------------
+
 //__ Box shadow
 @mixin box-shadow ($string) {
   -webkit-box-shadow: 	$string;
   -moz-box-shadow: 		  $string;
   box-shadow: 			    $string;
 }
-//** Example: @include box-shadow(0 1px 3px rgba(0,0,0,0.12));
-
-
+//** Como aplicarla? @include box-shadow(0 1px 3px rgba(0,0,0,0.12)); **
 
 //__ Inner Box Shadow
 @mixin box-shadow-inner ($x-axis, $y-axis, $blur, $color){
@@ -16,9 +18,7 @@
    -webkit-box-shadow: 	inset $x-axis $y-axis $blur $color;
    box-shadow:         	inset $x-axis $y-axis $blur $color;
 }
-//** Example: @include box-shadow-inner(0,0,8px,#fff);
-
-
+//** Como aplicarla? @include box-shadow-inner(0,0,8px,#fff); **
 
 //__ Main Deep
 @mixin main-deep ($level) {
@@ -54,4 +54,4 @@
     }
 }
 
-//** Example: @include main-deep(5);
+//** Como aplicarla? @include main-deep(5); **

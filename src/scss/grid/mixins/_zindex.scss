@@ -1,5 +1,9 @@
-// Main Z-index Mixins
 //-----------------------------
+//
+//    zindex Mixins
+//
+//-----------------------------
+
 @mixin zindex ($layer) {
     @if $layer == 1 {z-index: 10;}
     @else if $layer == 2 {z-index: 20;}
@@ -13,4 +17,4 @@
     @else if $layer == 10 {z-index: 100;}
 }
 
-//** Example: @include zindex(5);
+//** Como aplicarlo? @include zindex(5); **

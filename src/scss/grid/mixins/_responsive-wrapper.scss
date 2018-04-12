@@ -1,5 +1,30 @@
-// Responsive Wrapper Mixins
 //-----------------------------
-iframe {
-  max-width: 100%;
+//
+//    Responsive holder Mixins
+//		(iframes, video, ojects)
+//
+//-----------------------------
+
+@mixin responsive-holder($ratio: 1 1, $selector: "> :first-child") {
+	$selector: unquote($selector);
+	padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+	position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  &::before {
+    display: block;
+    content: "";
+  }
+	#{$selector} {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+	}
 }
+
+//** Como Aplicarlo? @include responsive-holder(16 9);

@@ -1,34 +1,57 @@
-// Main Variables
+//-----------------------------
+//
+//    Variables
+//
 //-----------------------------
 
-//** Grid System
-$total-columns:       12 !default;
-$gutter-width:        30px !default;
+//** Grid System -----------------------------
+$total-columns:             12 !default;
+$gutter-width:              30px !default;
 
-//** Colors
-$text-color:          #444444 !default;
-$brand-primary:       #6e45e2 !default;
-$brand-secondary:     #F31A3E !default;
 
-//** Navbar
-$navbar-main-padding:   15px !default;
-$navbar-height:         64px !default;
-$navbar-background:     #fff !default;
+//** Navbar -----------------------------
+$navbar-main-padding:       15px !default;
+$navbar-height:             64px !default;
+$navbar-background:         transparent !default;
+// brand
+$navbar-brand-margin:       round(($navbar-height - 20) / 2) 0 !default;
+// navbar items
+$navbar-item-padding:       0 round(($navbar-height - 30) / 2) !default;
+// offcanvas
+$offcanvas-panel:           300px !default; /* Ancho del panel Offcanvas */
 // pills nav
-$navbar-pills-padding:  10px 15px !default;
-$navbar-pills-radius:   12px !default;
-$navbar-pills-space:    10px !default;
+$navbar-pills-padding:      10px round(($navbar-height - 30) / 2) !default;
+$navbar-pills-radius:       6px !default;
+$navbar-pillsItem-space:    10px !default;
+$navbar-pills-bgColor:      #ccc !default;
 
 
-//** Buttons
-$disabled-btn:        #dddddd !default;
-$btn-top-margin:      5px !default;
-$btn-padding:         10px 20px !default;
+//** Masonry Layout -----------------------------
+$masonry-columns:           3 !default;  // cantidad de columnas de la grilla
+$masonry-gap:               1em !default;  // espacio entre columnas de la grilla
 
-//** Media Breakpoints
-$device-all: 					300px !default;
-$device-xs: 					480px !default;
-$device-sm: 					768px !default;
-$device-md: 					992px !default;
-$device-lg: 					1200px !default;
-$navbar-collapse:     $device-sm !default;
+
+//** Grid Layout -----------------------------
+:root{
+  --gridBox-height: 33.33%; // cantidad de columnas de la grilla
+  --grid-main-padding: 0;
+  --grid-column-space: 0;
+}
+@media (max-width: 992px){
+  :root{
+    --gridBox-height: 50%;  // cantidad de columnas de la grilla
+  }
+}
+@media (max-width: 500px){
+  :root{
+    --gridBox-height: 100%; // cantidad de columnas de la grilla
+  }
+}
+
+//** Media Breakpoints -----------------------------
+$device-all: 					      200px !default;
+$device-xs: 					      480px !default;
+$device-sm: 					      768px !default;
+$device-md: 					      992px !default;
+$device-lg: 					      1200px !default;
+$navbar-collapse:           $device-sm !default;

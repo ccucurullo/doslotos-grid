@@ -1,84 +1,22 @@
-// Global Mixins
+//-----------------------------
+//
+//    Global Mixins
+//
 //-----------------------------
 
-// Clear List
+//__ UL/OL Reset
 @mixin clear-list($list-margin, $list-padding, $list-type) {
   margin: $list-margin;
 	padding: $list-padding;
 	list-style-type: $list-type;
 }
-//** Example: @include clear-list(0, 0, none);
-
-// Position Mixin
-@mixin element-position ($position, $top-position: auto, $right-position: auto, $bottom-position: auto, $left-position: auto) {
-  position: $position;
-  top: $top-position;
-  right: $right-position;
-  bottom: $bottom-position;
-  left: $left-position;
-}
-//** Example: @include element-position (absolute,20px,0,0,20px);
-
-//__ Border Radius
-@mixin border-radius($radius) {
-  -webkit-border-radius:    $radius;
-  -moz-border-radius:       $radius;
-  border-radius:            $radius;
-  -moz-background-clip:     padding;
-  -webkit-background-clip:  padding-box;
-  background-clip:          padding-box;
-}
-//** Example: @include border-radius(50%);
-
-//__ Border Radius Individual
-@mixin border-radius-individual ($border-top-left, $border-top-right, $border-bottom-right, $border-bottom-left) {
-  -webkit-border-top-right-radius:    $border-top-right;
-  -webkit-border-bottom-right-radius: $border-bottom-right;
-  -webkit-border-bottom-left-radius:  $border-bottom-left;
-  -webkit-border-top-left-radius:     $border-top-left;
-  -moz-border-radius-topright:        $border-top-right;
-  -moz-border-radius-bottomright:     $border-bottom-right;
-  -moz-border-radius-bottomleft:      $border-bottom-left;
-  -moz-border-radius-topleft:         $border-top-left;
-  border-top-right-radius:            $border-top-right;
-  border-bottom-right-radius:         $border-bottom-right;
-  border-bottom-left-radius:          $border-bottom-left;
-  border-top-left-radius:             $border-top-left;
-  -moz-background-clip:               padding;
-  -webkit-background-clip:            padding-box;
-  background-clip:                    padding-box;
-}
-//** Example: @include border-radius-individual(10px, 5px, 10px, 5px);
-
-//__ Square Shapes
-@mixin square($square-size) {
-  width: 	$square-size;
-  height: 	$square-size;
-}
-//** Example: @include square(80px);
-
-
-//__ Circle Shapes
-@mixin circle ($circle-size){
-	@include square($circle-size);
-	@include border-radius(50%);
-}
-//** Example: @include circle(80px);
+//** Como aplicarlo? @include clear-list(0, 0, none); **
 
 //__ Placeholder
-//---------------------------------------------------------------------------------------
 @mixin placeholder {
   ::-webkit-input-placeholder {@content;}
   :-moz-placeholder           {@content;}
   ::-moz-placeholder          {@content;}
   :-ms-input-placeholder      {@content;}
 }
-//** Example: @include placeholder {style here}
-
-@mixin opacity ($opacity) {
-  -webkit-opacity:  $opacity;
-  -moz-opacity:     $opacity;
-  opacity:          $opacity;
-}
-
-//** Example: @include opacity (0.5);
+//** Como aplicarlo? @include placeholder {style here} **

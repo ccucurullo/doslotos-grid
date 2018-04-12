@@ -1,7 +1,10 @@
-// Position Mixins
+//-----------------------------
+//
+//    Position Mixins
+//
 //-----------------------------
 
-// Position Mixin
+//__ Position Mixin
 @mixin element-position ($position, $top-position: auto, $right-position: auto, $bottom-position: auto, $left-position: auto) {
   position: $position;
   top: $top-position;
@@ -9,4 +12,4 @@
   bottom: $bottom-position;
   left: $left-position;
 }
-//** Example: @include element-position (absolute,20px,0,0,20px);
+//** Como aplicarlo? @include element-position (absolute,20px,0,0,20px); **

@@ -1,11 +1,8 @@
-// Main Navbar
 //-----------------------------
-#navbar {
-  @include element-position (fixed,0,0,auto,0);
-  @include zindex(10);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
-}
-
+//
+//    Navbar
+//
+//-----------------------------
 .navbar {
   @extend  .display-flex;
 	@include flex-direction();
@@ -15,13 +12,20 @@
   padding-left: $navbar-main-padding;
   padding-right: $navbar-main-padding;
   background-color: $navbar-background;
+  // Reverse the navbar if you want an app look & feel
+  &.navbar-reverse{
+    @media (max-width: $navbar-collapse){
+      @include flex-direction(row-reverse);
+      @include align-items(center);
+      .brand{
+        @include flex-grow(2);
+      }
+    }
+  }
   // Site Logo / Brand
   > .brand {
   	display: block;
-  	margin: round(($navbar-height - 20) / 2) 0;
-    @media (max-width: $navbar-collapse) {
-      margin: 18px;
-    }
+  	margin: $navbar-brand-margin;
   }
   // Site Main Navigation
   > .nav {
@@ -36,85 +40,118 @@
     }
     // Nav Active
     &.active {
-      @extend  .display-flex;
-    }
-  }
-  // Reverse the navbar if you want an app look & feel
-  &.navbar-reverse{
-    @media (max-width: $navbar-collapse){
-      @include flex-direction(row-reverse);
-      @include align-items(flex-end);
-      .brand{
-        @include flex-grow(2);
-        margin-left: 0;
-      }
+      @extend .display-flex;
     }
   }
 }
 
+// Navbar fixed position
+.navbar-fixed{
+  @include element-position (fixed,0,0,auto,0);
+  @include zindex(10);
+}
+
 // Default Vertical Nav
-.navbar {
-  &.nav-default{
-    > .nav{
-      @media (max-width: $navbar-collapse) {
-        @include flex-direction(column);
-        @include flex-wrap(wrap);
-        @include align-items(flex-start);
-        @include element-position (fixed,($navbar-height - 1),auto,auto,0);
-        width: 100%;
-        overflow-y: auto;
-      }
+.nav-default{
+  > .nav{
+    @media (max-width: $navbar-collapse) {
+      @include flex-direction(column);
+      @include flex-wrap(wrap);
+      @include align-items(flex-start);
+      @include element-position (absolute,($navbar-height - 1),auto,auto,0);
+      width: 100%;
+      overflow-y: auto;
     }
   }
 }
 
 // Scrollin Horizontal Nav
-.navbar {
-  &.nav-horizontal{
-    > .nav {
-      @media (max-width: $navbar-collapse) {
-        @include flex-direction();
-        @include flex-wrap(nowrap);
-        @include align-items(center);
-        @include element-position (fixed,($navbar-height - 1),auto,auto,0);
-        width: 100%;
-        overflow-y: hidden;
-        overflow-x: auto;
-        & > li {
-          width: auto;
-        }
+.nav-horizontal{
+  > .nav {
+    @media (max-width: $navbar-collapse) {
+      @include flex-direction();
+      @include flex-wrap(nowrap);
+      @include align-items(flex-start);
+      @include element-position (absolute,($navbar-height - 1),auto,auto,0);
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: auto;
+      & > li {
+        width: auto;
+        @include flex(1 1 100%);
+        text-align: center;
       }
     }
   }
 }
 
+
+// Fullscreen Nav
+.nav-fullscreen{
+  @media (max-width: $navbar-collapse) {
+    > .toggle {
+      @include zindex(10);
+    }
+  }
+  > .nav {
+    @media (max-width: $navbar-collapse) {
+      @include flex-direction(column);
+      @include flex-wrap(wrap);
+      @include element-position (fixed,0,0,0,0);
+      padding-top: $navbar-height;
+      width: 100%;
+      height: 100vh;
+    }
+  }
+}
+
 // Offcanvas Nav
-.navbar {
-  &.nav-offcanvas{
-    > .nav {
-      @media (max-width: $navbar-collapse) {
-        @include display-flex();
-        @include flex-direction(column);
-  			@include flex-wrap(wrap);
-  			@include align-items(flex-start);
-        @include animation(0.25s ease-in-out);
-        @include element-position (fixed,0,auto,0,auto);
-        @include zindex(10);
-        width: 320px;
+.nav-offcanvas{
+  > .nav {
+    @media (max-width: $navbar-collapse) {
+      @include display-flex();
+      @include flex-direction(column);
+  		@include flex-wrap(wrap);
+  		@include align-items(flex-start);
+      @include animation(0.25s ease-in-out);
+      @include element-position (fixed,0,auto,0,auto);
+      @include zindex(10);
+      width: $offcanvas-panel;
+    }
+    // Left Offcanvas Nav
+    &.nav-left{
+      left:-$offcanvas-panel;
+      &.active {
+        left: 0;
       }
-      // Left Offcanvas Nav
-      &.nav-left{
-        left:-320px;
-        &.active {
-          left: 0;
-        }
+    }
+    // Right Offcanvas Nav
+    &.nav-right{
+      right:-$offcanvas-panel;
+      &.active {
+        right: 0;
       }
-      // Right Offcanvas Nav
-      &.nav-right{
-        right:-320px;
-        &.active {
-          right: 0;
-        }
+    }
+    // Open canvas below Header
+    &.below-header{
+      top: $navbar-height;
+    }
+  }
+}
+// Navbat Pill Items
+.pills-nav {
+  > .nav {
+    @include flex(0 1 auto);
+    @include justify-content(space-between);
+    & > li{
+      padding-left: $navbar-pillsItem-space;
+      padding-right: $navbar-pillsItem-space;
+      a{
+        @include border-radius($navbar-pills-radius);
+        background-color: $navbar-pills-bgColor;
+        height: auto;
+        line-height: normal;
+        padding: $navbar-pills-padding;
       }
     }
   }
@@ -128,129 +165,6 @@
   }
   a{
     display: block;
-    height: $navbar-height;
-    line-height: $navbar-height;
-    padding-left: round(($navbar-height - 20) / 2);
-    padding-right: round(($navbar-height - 20) / 2);
-  }
-}
-
-// Navbat Pill Items
-.pills-nav {
-  @include flex(0 1 auto);
-  @include justify-content(space-between);
-  & > li{
-    padding-left: $navbar-pills-space;
-    padding-right: $navbar-pills-space;
-    a{
-      @include border-radius($navbar-pills-radius);
-      background-color: #f3f3f3;
-      height: auto;
-      line-height: normal;
-      padding: $navbar-pills-padding;
-    }
-  }
-}
-
-// Main Nav Dropdown
-.dropdown{
-  position: relative;
-  > a:after{
-    @include animation-transform(rotate(-135deg));
-    @include square(8px);
-    content: '';
-    display: inline-block;
-    margin-left: 10px;
-    border-left: solid 1px #000;
-    border-top: solid 1px #000;
-
-  }
-  ul{
-    display: none;
-  }
-  &.open{
-    > a:after{
-      @include animation-transform(rotate(45deg));
-    }
-    ul{
-      @extend  .display-flex;
-      @include flex-direction(column);
-      @include flex-wrap(wrap);
-      @include clear-list(0, 0, none);
-      margin-top: 1px;
-      background-color: #ddd;
-      @media (min-width: $navbar-collapse){
-        position: absolute;
-      }
-      > li > a{
-        height: auto;
-        line-height: normal;
-        padding: 10px round(($navbar-height - 20) / 2);
-      }
-    }
-  }
-}
-
-// Reset pilss style to mach the dropdowns
-.pills-nav > .dropdown.open ul > li > a{
-  @include border-radius(0);
-  background-color: transparent;
-  padding: 10px round(($navbar-height - 20) / 2);
-}
-
-// Toggle button
-.navbar > .toggle {
-	border: 0;
-	background-color: transparent;
-	outline: none;
-	border: 0;
-	display: inline-block;
-	background-color: transparent;
-	background-image: none;
-	vertical-align: middle;
-	text-align: center;
-	white-space: nowrap;
-	cursor: pointer;
-	touch-action: manipulation;
-	user-select: none;
-	padding: round(($navbar-height - 20) / 2);
-	 @media (min-width: $navbar-collapse) {
-		 display: none;
-	 }
-}
-
-.navbar > .toggle > .icon {
-	position: relative;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	&,
-	&:before,
-	&:after {
-		display: block;
-		width: 24px;
-		height: 3px;
-		transition: background-color 0.15s linear, transform 0.15s linear;
-		background-color: #555555;
-	}
-	&:before,
-  &:after {
-    position: absolute;
-    content: "";
-  }
-	&:before {
-    top: -8px;
-  }
-	&:after {
-    top: 8px;
-  }
-}
-
-.navbar > .toggle.btn-active > .icon {
-	background-color: transparent;
-	&:before {
-    @include animation-transform(translateY(8px) rotate(45deg));
-  }
-	&:after {
-    @include animation-transform(translateY(-8px) rotate(-45deg));
+    padding: $navbar-item-padding;
   }
 }

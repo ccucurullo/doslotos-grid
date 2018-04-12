@@ -1,0 +1,61 @@
+//-----------------------------
+//
+//    Responsive Nav Toggle Btn
+//
+//-----------------------------
+
+.navbar > .toggle {
+	border: 0;
+	background-color: transparent;
+	outline: none;
+	border: 0;
+	display: inline-block;
+	background-color: transparent;
+	background-image: none;
+	vertical-align: middle;
+	text-align: center;
+	white-space: nowrap;
+	cursor: pointer;
+	touch-action: manipulation;
+	user-select: none;
+	padding: round(($navbar-height - 20) / 2);
+	 @media (min-width: $navbar-collapse) {
+		 display: none;
+	 }
+}
+
+.navbar > .toggle > .icon {
+	position: relative;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	&,
+	&:before,
+	&:after {
+		display: block;
+		width: 24px;
+		height: 3px;
+		transition: background-color 0.15s linear, transform 0.15s linear;
+		background-color: #555555;
+	}
+	&:before,
+  &:after {
+    position: absolute;
+    content: "";
+  }
+	&:before {
+    top: -8px;
+  }
+	&:after {
+    top: 8px;
+  }
+}
+
+.navbar > .toggle.toggle-active > .icon {
+	background-color: transparent;
+	&:before {
+    @include animation-transform(translateY(8px) rotate(45deg));
+  }
+	&:after {
+    @include animation-transform(translateY(-8px) rotate(-45deg));
+  }
+}
