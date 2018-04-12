@@ -1,9 +1,9 @@
 {
   "name": "doslotos-grid",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "flexbox framewrok",
   "repository": "git@github.com:ccucurullo/doslotos-grid.git",
-  "license" : "MIT",
+  "license": "MIT",
   "author": "Carlos Cucurullo <ccucurullo@gmail.com>",
   "contributors": [
     {
