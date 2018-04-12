@@ -2,7 +2,14 @@
   "name": "doslotos-grid",
   "version": "1.0.6",
   "description": "A lightweight CSS Flexbox Framework",
-  "repository": "git@github.com:ccucurullo/doslotos-grid.git",
+  "homepage": "https://github.com/ccucurullo/doslotos-grid",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ccucurullo/doslotos-grid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ccucurullo/doslotos-grid/issues"
+  },
   "license": "MIT",
   "keywords": [
     "flexbox",
