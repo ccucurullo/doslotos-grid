@@ -1,8 +1,8 @@
 {
-  "name": "dsgrid",
+  "name": "doslotos-grid",
   "version": "1.0.0",
   "description": "flexbox framewrok",
-  "repository": "git@github.com:ccucurullo/dsgrid.git",
+  "repository": "git@github.com:ccucurullo/doslotos-grid.git",
   "author": "Carlos Cucurullo <ccucurullo@gmail.com>",
   "contributors": [
     {
@@ -10,8 +10,8 @@
     }
   ],
   "scripts": {
-    "dev": "node-sass src/scss/dsgrid.scss dist/dsgrid.css",
-    "build": "node-sass --output-style=compressed src/scss/dsgrid.scss dist/css/dsgrid.css",
+    "dev": "node-sass src/scss/doslotos-grid.scss dist/doslotos-grid.css",
+    "build": "node-sass --output-style=compressed src/scss/doslotos-grid.scss dist/css/doslotos-grid.css",
     "release": "standard-version && git push --follow-tags && yarn publish"
   },
   "devDependencies": {
