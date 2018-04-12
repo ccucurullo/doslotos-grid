@@ -1,7 +1,7 @@
 {
   "name": "doslotos-grid",
   "version": "1.0.4",
-  "description": "flexbox framewrok",
+  "description": "A lightweight CSS Flexbox Framework",
   "repository": "git@github.com:ccucurullo/doslotos-grid.git",
   "license": "MIT",
   "keywords": [
