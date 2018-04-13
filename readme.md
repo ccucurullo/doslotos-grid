@@ -74,6 +74,16 @@ grid/
 * [Github](https://github.com/javialon26)
 * [LinkedIn](https://www.linkedin.com/in/javieralonsoshannon/)
 
+## How to Contribute
+
+* Clone repo
+* Run yarn install
+* Run yarn run dev
+
+As soon as the command 'yarn run dev' ends your browser will opnes index.html a kind of a playground for you to work on. You can leave all your examples in /examples/
+
+Thanks!
+
 ## Browser support
 **dosLotos** Grid uses autoprefixer to make Flexbox features compatible with earlier browser versions.
 
