@@ -28,8 +28,7 @@
   "scripts": {
     "dev": "gulp watch",
     "build": "gulp build",
-    "pre-release": "yarn run build && standard-version",
-    "release": "yarn run build && standard-version && git push --follow-tags && yarn publish"
+    "release": "standard-version && git push --follow-tags origin master && yarn publish"
   },
   "devDependencies": {
     "browser-sync": "^2.23.6",
