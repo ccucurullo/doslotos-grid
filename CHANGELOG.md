@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/ccucurullo/doslotos-grid/compare/v1.0.8...v1.1.0) (2018-04-13)
+
+
+### Bug Fixes
+
+* fix release command ([4e072cd](https://github.com/ccucurullo/doslotos-grid/commit/4e072cd))
+* move example out of src directory ([83cf234](https://github.com/ccucurullo/doslotos-grid/commit/83cf234))
+* remove hook from package.json ([340f876](https://github.com/ccucurullo/doslotos-grid/commit/340f876))
+
+
+### Features
+
+* new development process, add examples folder and gulpfile ([51cc675](https://github.com/ccucurullo/doslotos-grid/commit/51cc675))
+
+
+
 <a name="1.0.8"></a>
 ## [1.0.8](https://github.com/ccucurullo/doslotos-grid/compare/v1.0.7...v1.0.8) (2018-04-12)
 
