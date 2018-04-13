@@ -61,4 +61,6 @@ typings/
 .DS_Store
 
 # custom
+gulpfile.js
+src/examples/
 dist/examples/
