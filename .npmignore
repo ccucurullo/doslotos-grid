@@ -62,5 +62,5 @@ typings/
 
 # custom
 gulpfile.js
-src/examples/
+examples/
 dist/examples/

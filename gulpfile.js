@@ -39,7 +39,7 @@ gulp.task('styles:dev', () => {
 
 gulp.task('html:dev', () => {
   return gulp
-    .src(['src/examples/**/*.html'])
+    .src(['examples/**/*.html'])
     .pipe(gulp.dest('dist/examples'))
     .pipe(browserSync.stream());
 });
@@ -50,7 +50,7 @@ gulp.task('default', () => {
 
 gulp.task('watch', ['default'], () => {
   gulp.watch('src/scss/**/*.scss', ['styles:dev']);
-  gulp.watch(['src/examples/**/*.html'], ['html:dev']);
+  gulp.watch(['examples/**/*.html'], ['html:dev']);
 });
 
 // ##################################################################
